@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script type="https://fontawesome.com/v5.15/icons/plus"></script>
+
+  <title>Old</title>
+</head>
+<style>
+  body{
+    overflow-x: hidden;
+  }
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .container{
+    margin-top: 40px;
+    margin-left: 10px;
+    width: 760px;
+  }
+  .embed-responsive{
+    border: 2px solid black;
+  }
+  .row{
+    padding: 30px 10px;
+  }
+  .container{
+    overflow-x: auto;
+    overflow-y: auto;
+  }
+  div.ex1{
+    background-color: white;
+    overflow-y: auto;
+    padding: 10px;
+    font-size: 20px;
+  }
+  .accordion{
+    width: 330px;
+    font-size: 20px;
+  }
+  .btn{
+    color: black;
+    background: #1f8dd6;
+    text-decoration: none;
+    font-size: 30px;
+  }
+  .btn:hover{
+    text-decoration: none;
+    color: red;
+  }
+  .card-header{
+    background: #1f8dd6;
+    border-radius: 30%;
+  }
+</style>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">BhrvCoding</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Project</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="row">
+  <div class="container">
+    <div class="panel panel-warning">
+      <div class="panel-body">
+        <div class="embed-responsive embed-responsive-16by9 col-sm-12">
+          <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/lgVdIaLm3cQ" allowfullscreen></iframe> 
+        </div>
+      </div>
+    </div>
+  </div>  
+
+  <div class="ex1 border shadow d-none d-lg-block col-md 3 mr-5" style="margin-top: 40px; height: 400px; width: 200px;">
+    <div class="col">
+      <h5 class="m-3">Courses</h5>
+      <a href="" class="ml-5 p-3 pr-5">GoCorona Game | Project #1</a><br><br>
+      <a href="" class="ml-5 p-3 pr-5">Snake Game | Project #2</a><br><br>
+      <a href="" class="ml-5 p-3 pr-5">Water Reminder | Project #3</a><br>
+    </div>
+  </div>
+
+<div>
+  <div class="accordion ml-4 mt-3 d-block d-lg-none" id="accordionExample">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h2 class="mb-0">
+        <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          Project Videos<i class="fas fa-plus"></i>
+        </button>
+      </h2>
+    </div>
+
+    <div id="collapseOne" class="collapse hide" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <a href="">GoCorona Game</a><br><br>
+        <a href="">Snake Game</a><br><br>
+        <a href="">Water Reminder</a><br><br>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div style="overflow-y: auto; word-wrap: break-word !important;">
+<div class="container ml-4">
+import pygame<br>
+import random<br>
+pygame.init()<br>
+width=800<br>
+height=550<br>
+screen = pygame.display.set_mode((width,height))<br>
+pygame.display.set_caption("SNAKE GAME")<br>
+bgimg = pygame.image.load('Data/background.jpg')<br>
+intro = pygame.image.load('Data/intro.png')<br>
+GO = pygame.image.load('Data/Over.png')<br>
+white = (255,255,255)<br>
+running = True<br>
+snake_pos = [ [300, 300], [320, 300], [340, 300], [360, 300] ]<br>
+step = 20<br>
+up = (0, -step)<br>
+left = (-step, 0)<br>
+right = (step, 0)<br>
+down = (0, step)<br>
+direction = left<br>
+apple_pos = [260,300]<br>
+
+score = 0<br>
+border_pos = [[0, 0, 800, 10], [0, 590, 800, 10], [0, 0, 10, 600], [790, 0, 10, 600]]
+timer = 0<br>
+font = pygame.font.SysFont('Arial', 30)<br>
+game_over = 0<br>
+game_over= False<br>
+exit_game = True<br>
+welcome_two = False<br>
+def welcome():<br>
+&emsp;global exit_game, welcome_two, running<br>
+&emsp;while exit_game == True:<br>
+&emsp;font = pygame.font.SysFont("freesansbold.ttf", 90, True)<br>
+&emsp;message = font.render("Welcome!", True, (0, 0, 255))<br>
+&emsp;screen.blit(intro, (0, 0))<br>
+&emsp;for event in pygame.event.get():<br>
+&emsp;&emsp;if event.type == pygame.KEYDOWN:<br>
+&emsp;&emsp;&emsp;if event.key == pygame.K_SPACE:<br>
+&emsp;&emsp;&emsp;&emsp;exit_game = False<br>
+&emsp;&emsp;&emsp;&emsp;welcome_two = True<br>
+&emsp;&emsp;&emsp;if event.type == pygame.QUIT:<br>
+&emsp;&emsp;&emsp;&emsp;exit_game = False<br>
+&emsp;&emsp;&emsp;&emsp;welcome_two = False<br>
+&emsp;&emsp;&emsp;&emsp;running = False<br>
+&emsp;pygame.display.update()<br>
+def gameover():<br>
+&emsp;exit_game= False<br>
+&emsp;while not exit_game:<br>
+&emsp;msg= pygame.font.Font('freesansbold.ttf',64)<br>
+&emsp;scoor= (180,200)<br>
+&emsp;screen.blit(GO, (0,0))<br>
+&emsp;for event in pygame.event.get():<br>
+&emsp;&emsp;if event.type==pygame.QUIT:<br>
+&emsp;&emsp;&emsp;exit_game=True<br>
+&emsp;&emsp;&emsp;running= False<br>
+def game_over_text(scr):<br>
+&emsp;screen.blit(GO, (0,0))<br>
+&emsp;fs= pygame.font.Font('freesansbold.ttf',32)<br>
+&emsp;fscoord= (300,400)<br>
+&emsp;screen.blit(fs.render("Final Score: "+str(score),True,(0,0,0)),fscoord)<br>
+running= True<br>
+while running:<br>
+&emsp;if game_over==True:<br>
+&emsp;&emsp;screen.fill((0,0,0))<br>
+&emsp;&emsp;screen.blit(GO,(0,0))<br>
+&emsp;pygame.time.Clock().tick(30)<br>
+&emsp;screen.blit(bgimg, (0, 0))<br>
+&emsp;welcome()<br>
+&emsp;if snake_pos[0][0]-10<0 or snake_pos[0][0]+10>800 or snake_pos[0][1]+10<0 or snake_pos[0][1]-10>600: <br>
+&emsp;&emsp;running = False<br>
+&emsp;for event in pygame.event.get():<br>
+&emsp;&emsp;if event.type == pygame.QUIT:<br>
+&emsp;&emsp;&emsp;pygame.quit()<br>
+&emsp;&emsp;&emsp;running = False<br>
+&emsp;&emsp;if event.type == pygame.KEYDOWN:<br>
+&emsp;&emsp;&emsp;if event.key == pygame.K_DOWN:<br>
+&emsp;&emsp;&emsp;&emsp;direction = down<br>
+&emsp;&emsp;&emsp;elif event.key == pygame.K_UP:<br>
+&emsp;&emsp;&emsp;&emsp;direction = up<br>
+&emsp;&emsp;&emsp;elif event.key == pygame.K_LEFT:<br>
+&emsp;&emsp;&emsp;&emsp;direction = left<br>
+&emsp;&emsp;&emsp;elif event.key == pygame.K_RIGHT:<br>
+&emsp;&emsp;&emsp;&emsp;direction = right<br>
+&emsp;for x,y in snake_pos:<br>
+&emsp;&emsp;pygame.draw.circle(screen, (255,0,0), (x,y), 10)<br> 
+&emsp;pygame.draw.circle(screen, (0,0,255), apple_pos, 10)<br>
+&emsp;text = font.render( ("SCORE: "+str(score)), True, (0,0,0))<br> 
+&emsp;screen.blit(text, (0,0))<br>
+&emsp;for x, y in snake_pos:<br>
+&emsp;&emsp;if x >= 800 or x <= 0 or y >= 600 or y <= 0:<br>
+&emsp;&emsp;&emsp;running = False<br>
+&emsp;&emsp;&emsp;game_over = 1<br>
+&emsp;timer += 1<br>
+&emsp;if timer == 5:<br>
+&emsp;&emsp;snake_pos=[[snake_pos[0][0]+direction[0],snake_pos[0][1]+direction[1]]]+snake_pos[:-1]<br>
+&emsp;&emsp;timer = 0<br>
+&emsp;if snake_pos[0] == apple_pos:<br>
+&emsp;&emsp;x = ((random.randint(20,780))//20)*20<br>
+&emsp;&emsp;y = ((random.randint(20,580))//20)*20<br>
+&emsp;&emsp;apple_pos = [x,y]<br>
+&emsp;&emsp;snake_pos.append(snake_pos[-1])<br>
+&emsp;&emsp;score += 1<br>
+&emsp;for i in range(1, len(snake_pos)):<br>
+&emsp;&emsp;if snake_pos[0] == snake_pos[i]:<br>
+&emsp;&emsp;&emsp;running = False<br>
+&emsp;&emsp;&emsp;game_over = True<br>
+&emsp;if game_over == True:<br>
+&emsp;&emsp;game_over_text(score)<br>
+&emsp;pygame.display.update()<br>
+gameover()<br>
+</div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
